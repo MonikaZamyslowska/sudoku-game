@@ -2,10 +2,13 @@ package board;
 
 import lombok.Getter;
 import lombok.Setter;
+import service.SudokuService;
 
 @Setter
 @Getter
 public class Board {
+    SudokuService sudokuService;
+    private int[][] finalBoard;
 
     private int[][] hardBoard = {
             { 8, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -43,7 +46,24 @@ public class Board {
             { 9, 3, 8, 7, 2, 5, 0, 6, 0 }
     };
 
-    public Board() {
-
+    public Board(int[][] finalBoard) {
+        this.finalBoard = finalBoard;
     }
+
+    public void createBoard() {
+        int board = sudokuService.chooseBoard();
+        if (board == 1) {
+            finalBoard = easyBoard;
+        }
+        if (board == 2) {
+            finalBoard = mediumBoard;
+        }
+        if (board == 3) {
+            finalBoard = hardBoard;
+        } else {
+            sudokuService.chooseBoard();
+        }
+    }
+
+
 }
