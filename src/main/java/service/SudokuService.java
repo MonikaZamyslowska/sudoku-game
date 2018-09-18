@@ -1,22 +1,26 @@
 package service;
 
-import board.Board;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.sql.SQLOutput;
-import java.util.Random;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static service.Statements.*;
+
+@Getter
+@Setter
 public class SudokuService {
 
-    private Scanner scanner = new Scanner(System.in);
 
     public int chooseBoard() {
         int numberBoard;
-        System.out.println(Statements.ASK_LEVEL);
+        System.out.println(ASK_LEVEL);
         try {
+            Scanner scanner = new Scanner(System.in);
             numberBoard = scanner.nextInt();
-        } catch (IllegalArgumentException e) {
-            System.out.println(Statements.EXCEPTION);
+        } catch (InputMismatchException e) {
+            System.out.println(EXCEPTION);
             numberBoard = 0;
         }
         return numberBoard;
