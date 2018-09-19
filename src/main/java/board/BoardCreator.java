@@ -8,7 +8,7 @@ import service.SudokuService;
 @Setter
 @Getter
 @NoArgsConstructor
-public class CreateBoard {
+public class BoardCreator {
     SudokuService sudokuService = new SudokuService();
 
     public Board createBoard() {

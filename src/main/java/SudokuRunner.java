@@ -1,9 +1,9 @@
 import board.Board;
-import board.CreateBoard;
+import board.BoardCreator;
 
 public class SudokuRunner {
     public static void main(String[] args) {
-        CreateBoard createBoard = new CreateBoard();
+        BoardCreator createBoard = new BoardCreator();
         Board board = createBoard.createBoard();
         board.printBoard();
     }

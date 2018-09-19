@@ -10,6 +10,7 @@ import static service.Statements.*;
 
 @Getter
 @Setter
+
 public class SudokuService {
 
 
