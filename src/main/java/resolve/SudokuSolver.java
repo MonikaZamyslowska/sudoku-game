@@ -5,12 +5,30 @@ import static service.Statements.*;
 public class SudokuSolver {
 
     public boolean solve(int[][] board) {
-        return false;
+
+        for (int row = BOARD_START_INDEX; row < BOARD_SIZE; row++) {
+            for (int col = BOARD_START_INDEX; col < BOARD_SIZE; col++) {
+                if (board[row][col] == EMPTY) {
+                    for (int num = MIN_VALUE; num <= MAX_VALUE; num++) {
+                        if (isValid(board, row, col, num)) {
+                            board[row][col] = num;
+                            if (solve(board)) {
+                                return true;
+                            } else {
+                                board[row][col] = EMPTY;
+                            }
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public boolean isValid(int[][] board, int row, int col, int num) {
-        return !containsInRow(board, row, num) && !containsInColumn(board, col, num) &&
-                !containsInSubsection(board, row, col, num);
+        return !(containsInRow(board, row, num) || containsInColumn(board, col, num) ||
+                containsInSubsection(board, row, col, num));
     }
 
     public boolean containsInRow(int[][] board, int row, int num) {
@@ -32,21 +50,19 @@ public class SudokuSolver {
     }
 
     public boolean containsInSubsection(int[][] board, int row, int col, int num) {
-        int contRowStart = row - row / SUBSECTION_SIZE;
+        int contRowStart = (row / SUBSECTION_SIZE) * 3;
         int contRowEnd = contRowStart + SUBSECTION_SIZE;
 
-        int contColStart = col - col / SUBSECTION_SIZE;
+        int contColStart = (col / SUBSECTION_SIZE) * 3;
         int contColEnd = contColStart + SUBSECTION_SIZE;
 
         for (int r = contRowStart; r < contRowEnd; r++) {
             for (int c = contColStart; c < contColEnd; c++) {
-                if (board[r][c]  == num) {
+                if (board[r][c] == num) {
                     return true;
                 }
             }
         }
         return false;
     }
-
-
 }
