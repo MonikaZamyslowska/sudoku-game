@@ -43,7 +43,7 @@ public class SudokuService {
         String choice = scanner.nextLine();
         Matcher valueMatcher = PATTERN_VALUE.matcher(choice);
         Matcher sudokuMatcher = PATTERN_SUDOKU.matcher(choice);
-        while (!(valueMatcher.matches() && sudokuMatcher.matches())) {
+        while (valueMatcher.matches() || sudokuMatcher.matches()) {
             System.out.println(EXCEPTION);
             choice = scanner.nextLine();
             valueMatcher = PATTERN_VALUE.matcher(choice);
