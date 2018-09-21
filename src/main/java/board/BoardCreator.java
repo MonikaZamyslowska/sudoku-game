@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import service.SudokuService;
 
+import static service.Statements.ASK_LEVEL;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -53,6 +55,8 @@ public class BoardCreator {
         };
 
         int chosenNum = sudokuService.chooseBoard();
+        System.out.println(ASK_LEVEL);
+        sudokuService.choice();
 
         if (chosenNum == 1) {
             board = new Board(easyBoard);
@@ -62,9 +66,6 @@ public class BoardCreator {
         }
         if (chosenNum == 3) {
             board = new Board(hardBoard);
-        }
-        if (chosenNum == 0) {
-            sudokuService.chooseBoard();
         }
 
         return board;

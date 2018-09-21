@@ -1,5 +1,7 @@
 package service;
 
+import java.util.regex.Pattern;
+
 public class Statements {
     public static int MIN_VALUE = 1;
     public static int MAX_VALUE = 9;
@@ -8,11 +10,13 @@ public class Statements {
     public static int BOARD_START_INDEX = 0;
     public static int BOARD_SIZE = 9;
     public static String WELCOME_MESSAGE = "WELCOME TO SUDOKU :)";
-    public static String MENU = "CHOOSE: \n Continue -> 1 \n Resolve Sudoku -> 2 \n" +
+    public static String MENU = "CHOOSE: \n Put value -> 1 \n Set value -> 2 \n" +
             "Quit game -> 3";
     public static String ASK_LEVEL = "Choose Level: \n EASY -> 1 \n MEDIUM -> 2 \n HARD -> 3";
-    public static String ASK_ROW = "Choose the row number: 1 - 9";
-    public static String ASK_COL = "Choose the column number: 1 - 9";
-    public static String ASK_NUM = "Choose the number to insert: 1 - 9";
+    public static String SET_VALUE = "Enter filed to set and value (column row value) or enter \"SUDOKU\" " +
+            "if you wont to solve Sudoku. ";
+    public static String FINISH_GAME = "Do you want to finish game? \n If yes -> \"y\" \n If no -> anything ;)";
+    public static Pattern PATTERN_VALUE = Pattern.compile("^([1-9],[1-9],[1-9],?)+?$");
+    public static Pattern PATTERN_SUDOKU = Pattern.compile("^SUDOKU$");
     public static String EXCEPTION = "Your answer is wrong, please choose again";
 }
