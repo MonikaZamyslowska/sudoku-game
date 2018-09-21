@@ -15,14 +15,17 @@ public class SudokuPlay {
         while (true) {
             board.printBoard(board.getBoard());
             String choice = sudokuService.valueChoice();
-            if (choice.equals("SUDOKU")) {
+            System.out.println(choice);
+            if (choice.equals("sudoku")) {
                 break;
             }
-            String[] strings = choice.split(",");
-            int row = Integer.parseInt(strings[1]) - 1;
-            int col = Integer.parseInt(strings[2]) - 1;
-            int number = Integer.parseInt(strings[3]);
-            board.setValue(row, col, number);
+            String[] strings = choice.split("|");
+            for (int s = 0; s < strings.length; s += 3) {
+                int row = Integer.parseInt(strings[s]) - 1;
+                int col = Integer.parseInt(strings[s + 1]) - 1;
+                int number = Integer.parseInt(strings[+2]);
+                board.setValue(row, col, number);
+            }
         }
     }
 
