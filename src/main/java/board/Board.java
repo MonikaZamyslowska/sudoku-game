@@ -1,11 +1,13 @@
 package board;
 
 import lombok.Getter;
+import lombok.Setter;
 import resolve.SudokuSolver;
 
 import static service.Statements.*;
 
 @Getter
+@Setter
 public class Board {
     SudokuSolver sudokuSolver = new SudokuSolver();
     private int[][] board;
@@ -38,5 +40,9 @@ public class Board {
             }
         }
         return copyBoard;
+    }
+
+    public void setValue(int row, int col, int num) {
+        board[row][col] = num;
     }
 }

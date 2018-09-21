@@ -54,9 +54,8 @@ public class BoardCreator {
                 { 0, 9, 0, 0, 0, 0, 4, 0, 0 }
         };
 
-        int chosenNum = sudokuService.chooseBoard();
         System.out.println(ASK_LEVEL);
-        sudokuService.choice();
+        int chosenNum = sudokuService.choice();
 
         if (chosenNum == 1) {
             board = new Board(easyBoard);

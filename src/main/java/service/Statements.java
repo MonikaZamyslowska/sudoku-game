@@ -10,8 +10,6 @@ public class Statements {
     public static int BOARD_START_INDEX = 0;
     public static int BOARD_SIZE = 9;
     public static String WELCOME_MESSAGE = "WELCOME TO SUDOKU :)";
-    public static String MENU = "CHOOSE: \n Put value -> 1 \n Set value -> 2 \n" +
-            "Quit game -> 3";
     public static String ASK_LEVEL = "Choose Level: \n EASY -> 1 \n MEDIUM -> 2 \n HARD -> 3";
     public static String SET_VALUE = "Enter filed to set and value (column row value) or enter \"SUDOKU\" " +
             "if you wont to solve Sudoku. ";
