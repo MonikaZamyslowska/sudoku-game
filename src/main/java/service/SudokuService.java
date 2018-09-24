@@ -55,6 +55,12 @@ public class SudokuService {
         return choice;
     }
 
+    public boolean playAgain() {
+        System.out.println(PLAY_AGAIN);
+        String playAgain = scanner.nextLine();
+        return playAgain.equals("y");
+    }
+
     public boolean gameFinished() {
         System.out.println(FINISH_GAME);
         String isFinish = scanner.nextLine();
