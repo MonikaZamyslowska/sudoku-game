@@ -10,13 +10,14 @@ import static service.Statements.*;
 public class SudokuPlay {
     private BoardCreator boardCreator = new BoardCreator();
     private SudokuService sudokuService = new SudokuService();
+    private boolean sudokuFinish = false;
 
     public void serviceValueChoice(Board board) {
         while (true) {
             board.printBoard(board.getBoard());
             String choice = sudokuService.valueChoice();
-            System.out.println(choice);
             if (choice.equals("sudoku")) {
+                sudokuFinish = true;
                 break;
             }
             String[] strings = choice.split("|");
@@ -32,16 +33,18 @@ public class SudokuPlay {
     public void playSudoku() {
         boolean finish = false;
         System.out.println(WELCOME_MESSAGE);
-        Board board = boardCreator.createBoard();
-        int[][] newBoard = board.getBoard();
         while (!finish) {
-            boolean ifWant = true;
-            while (ifWant) {
+            Board board = boardCreator.createBoard();
+            int[][] createdBoard = board.getBoard();
+            int[][] copyBoard = board.deepCopy(createdBoard);
+            sudokuFinish = false;
+            while (!sudokuFinish) {
                 serviceValueChoice(board);
-                int[][] solvedBoard = board.solveSudoku(newBoard);
-                board.printBoard(solvedBoard);
-                finish = sudokuService.gameFinished();
             }
+            board.solveSudoku(createdBoard);
+            board.printBoard(copyBoard);
+            board.printBoard(createdBoard);
+            finish = sudokuService.gameFinished();
         }
     }
 }

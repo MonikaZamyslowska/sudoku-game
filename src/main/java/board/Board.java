@@ -26,19 +26,20 @@ public class Board {
         }
     }
 
-    public int[][] solveSudoku(int[][] board) {
+    public void solveSudoku(int[][] board) {
         copyBoard = deepCopy(board);
-        sudokuSolver.solve(copyBoard);
-        return copyBoard;
+        sudokuSolver.solve(board);
     }
 
     public int[][] deepCopy(int[][] board) {
         int[][] copyBoard = new int[BOARD_SIZE][BOARD_SIZE];
+        System.out.println();
         for (int r = BOARD_START_INDEX; r < BOARD_SIZE; r++) {
             for (int c = BOARD_START_INDEX; c < BOARD_SIZE; c++) {
                 copyBoard[r][c] = board[r][c];
             }
         }
+        System.out.println();
         return copyBoard;
     }
 

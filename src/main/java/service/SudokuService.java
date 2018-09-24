@@ -22,6 +22,9 @@ public class SudokuService {
         } catch (InputMismatchException e) {
             System.out.println(EXCEPTION);
             number = 0;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(EXCEPTION);
+            number = 0;
         }
         if (number > 3) {
             System.out.println(EXCEPTION);
