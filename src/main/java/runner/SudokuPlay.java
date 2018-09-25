@@ -5,7 +5,7 @@ import board.BoardCreator;
 import service.SudokuService;
 
 
-import static service.Statements.*;
+import static service.SudokuService.*;
 
 public class SudokuPlay {
     private BoardCreator boardCreator = new BoardCreator();

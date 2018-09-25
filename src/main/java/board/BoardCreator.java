@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import service.SudokuService;
 
-import static service.Statements.ASK_LEVEL;
+import static service.SudokuService.*;
 
 @Setter
 @Getter

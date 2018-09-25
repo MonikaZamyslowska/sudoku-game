@@ -1,6 +1,6 @@
 package resolve;
 
-import static service.Statements.*;
+import static service.SudokuService.*;
 
 public class SudokuSolver {
 

@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import resolve.SudokuSolver;
 
-import static service.Statements.*;
+import static service.SudokuService.*;
 
 @Getter
 @Setter
