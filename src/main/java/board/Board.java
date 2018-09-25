@@ -17,23 +17,23 @@ public class Board {
         this.board = board;
     }
 
-    public String printBoard(int[][] board) {
-        String string = "";
+    public void printBoard(int[][] board) {
+        String builder = "";
         for (int row = BOARD_START_INDEX; row < MAX_VALUE; row++) {
             if (row % 3 == 0) {
-                string += "+ - - - + - - - + - - - + \n";
+                builder += "+ - - - + - - - + - - - + \n";
             }
             for (int col = BOARD_START_INDEX; col < MAX_VALUE; col++) {
                 if (col % 3 == 0) {
-                    string += "| ";
+                    builder += "| ";
                 }
-                string += (board[row][col] == 0 ? "." : board[row][col]);
-                string += " ";
+                builder += (board[row][col] == 0 ? "." : board[row][col]);
+                builder += " ";
             }
-            string += "|\n";
+            builder += "|\n";
         }
-        string += "+ - - - + - - - + - - - + \n";
-        return string;
+        builder += "+ - - - + - - - + - - - + \n";
+        System.out.println(builder);
     }
 
     public void solveSudoku(int[][] board) {
@@ -49,9 +49,5 @@ public class Board {
             }
         }
         return copyBoard;
-    }
-
-    public void setValue(int row, int col, int num) {
-        board[row][col] = num;
     }
 }

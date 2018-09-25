@@ -61,7 +61,7 @@ public class SudokuService {
         return playAgain.equals("y");
     }
 
-    public boolean gameFinished() {
+    public boolean finishGame() {
         System.out.println(FINISH_GAME);
         String isFinish = scanner.nextLine();
         return isFinish.equals("y");
